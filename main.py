@@ -8,7 +8,7 @@ while True:
          # Print the values to the serial port
          temperature = dhtDevice.temperature
          humidity = dhtDevice.humidity
-         print("Temp: {:.1f} F / {:.1f} C    Humidity: {}% "
+         print("Temp: {:.1f} C    Humidity: {}% "
                .format(temperature, humidity))
     except RuntimeError as error:     # Errors happen fairly often, DHT's are hard to read, just keep going
          print(error.args[0])
