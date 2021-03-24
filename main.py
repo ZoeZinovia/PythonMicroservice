@@ -2,8 +2,8 @@ import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 from time import sleep # Import the sleep function from the time module
 import Adafruit_DHT
 
-sensor = 22 # might need to be changed depending on the pi setup
-pin = 12 # might need to be changed depending on the pi setup
+sensor = Adafruit_DHT.DHT11 # might need to be changed depending on the pi setup
+pin = 6 # might need to be changed depending on the pi setup
 print("trying..")
 humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)  # Not doing anything...
 print(humidity)
