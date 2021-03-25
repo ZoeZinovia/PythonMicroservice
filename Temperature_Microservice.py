@@ -16,9 +16,10 @@ while count<20:
          # Print the values to the serial port
          temperature = dhtDevice.temperature
          humidity = dhtDevice.humidity
+         temp_json = {"Temp": temperature}
          message = str("Temp: {:.2f}"
                .format(temperature))
-         publish.single(MQTT_PATH, message, hostname=MQTT_SERVER)
+         publish.single(MQTT_PATH, json.dumps(temp_json), hostname=MQTT_SERVER)
 
     except RuntimeError as error:     # Errors happen fairly often, DHT's are hard to read, just keep going
          print(error.args[0])
