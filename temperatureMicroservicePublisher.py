@@ -14,10 +14,10 @@ dhtDevice = adafruit_dht.DHT11(board.D4)
 # while count<20:
 #     try:
  # Print the values to the serial port
- temperature = dhtDevice.temperature
- humidity = dhtDevice.humidity
- temp_json = {"Temp": temperature, "Unit":"C"}
- publish.single(MQTT_PATH, json.dumps(temp_json), port=1883, hostname=MQTT_SERVER)
+temperature = dhtDevice.temperature
+humidity = dhtDevice.humidity
+temp_json = {"Temp": temperature, "Unit":"C"}
+publish.single(MQTT_PATH, json.dumps(temp_json), port=1883, hostname=MQTT_SERVER)
 
     # except RuntimeError as error:     # Errors happen fairly often, DHT's are hard to read, just keep going
     #      print(error.args[0])
