@@ -16,6 +16,8 @@ while count<20:
     try:
          # Print the values to the serial port
          newTemperature = dhtDevice.temperature
+         print(temperature)
+         print(newTemperature)
          if newTemperature != temperature:
              temp_json = {"Temp": newTemperature, "Unit":"C"}
              publish.single(MQTT_PATH, json.dumps(temp_json), port=1883, hostname=MQTT_SERVER)
