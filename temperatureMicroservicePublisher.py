@@ -16,8 +16,6 @@ while count<20:
     try:
          # Print the values to the serial port
          newTemperature = dhtDevice.temperature
-         print(temperature)
-         print(newTemperature)
          if newTemperature != temperature:
              temperature = newTemperature
              temp_json = {"Temp": temperature, "Unit":"C"}
