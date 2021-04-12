@@ -19,7 +19,8 @@ while count<20:
          print(temperature)
          print(newTemperature)
          if newTemperature != temperature:
-             temp_json = {"Temp": newTemperature, "Unit":"C"}
+             temperature = newTemperature
+             temp_json = {"Temp": temperature, "Unit":"C"}
              publish.single(MQTT_PATH, json.dumps(temp_json), port=1883, hostname=MQTT_SERVER)
 
     except RuntimeError as error:     # Errors happen fairly often, DHT's are hard to read, just keep going
