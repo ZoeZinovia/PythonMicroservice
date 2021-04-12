@@ -5,7 +5,7 @@ import time
 
 MQTT_SERVER = "192.168.1.210"
 MQTT_PATH = "LED"
-
+GPIO.setmode(GPIO.BCM)
 
 def on_connect(client, userdata, flags, rc):
     print("Connected. Result code: "+ str(rc))
