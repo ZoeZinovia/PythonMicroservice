@@ -18,7 +18,7 @@ while count < 20:
         if newHumidity != humidity:
             humidity = newHumidity
             hum_json = {"Humidity": humidity, "Unit": "%"}
-            publish.single(MQTT_PATH, json.dumps(hum_json), hostname=MQTT_SERVER)
+            # publish.single(MQTT_PATH, json.dumps(hum_json), hostname=MQTT_SERVER)
 
     except RuntimeError as error:  # Errors happen fairly often, DHT's are hard to read, just keep going
         print(error.args[0])
