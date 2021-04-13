@@ -8,7 +8,7 @@ MQTT_SERVER = "192.168.1.210"
 MQTT_PATH = "Humidity"
 
 # Initial the dht device, with data pin connected to:
-dhtDevice = adafruit_dht.DHT11(board.D18)
+dhtDevice = adafruit_dht.DHT11(board.D12)
 humidity = 0
 temperature = 0;
 count = 0
