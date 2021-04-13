@@ -14,7 +14,7 @@ count = 0
 while count<20:
     try:
          # Print the values to the serial port
-         newPresence = pir.motion_detected()
+         newPresence = pir.motion_detected
          if newPresence != presence:
              presence = newPresence
              temp_json = {"PIR": presence}
