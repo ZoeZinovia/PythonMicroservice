@@ -17,16 +17,13 @@ def on_message(client, userdata, msg):
     msg.payload = msg.payload.decode("utf-8")
     print("message received: " + msg.payload)
     received_json = json.loads(msg.payload) #convert the string to json object
-    print(type(received_json["LED_1"]))
     led_1_status = received_json["LED_1"]
-    print(type(led_1_status))
     led_1_gpio = received_json["GPIO"]
-    print(type(led_1_gpio))
     GPIO.setup(led_1_gpio, GPIO.OUT)
-    if led_1_status:
-        GPIO.output(led_1_gpio, GPIO.HIGH)
-    else:
-        GPIO.output(led_1_gpio, GPIO.LOW)
+    # if led_1_status:
+    GPIO.output(led_1_gpio, GPIO.HIGH)
+    # else:
+        #GPIO.output(led_1_gpio, GPIO.LOW)
     print("Pi LED updated")
 
 client = mqtt.Client()
