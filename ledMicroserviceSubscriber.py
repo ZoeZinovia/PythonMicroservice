@@ -20,10 +20,10 @@ def on_message(client, userdata, msg):
     led_1_status = received_json["LED_1"]
     led_1_gpio = received_json["GPIO"]
     GPIO.setup(led_1_gpio, GPIO.OUT)
-    # if led_1_status:
-    GPIO.output(led_1_gpio, GPIO.HIGH)
-    # else:
-        #GPIO.output(led_1_gpio, GPIO.LOW)
+    if led_1_status:
+        GPIO.output(led_1_gpio, GPIO.HIGH)
+    else:
+        GPIO.output(led_1_gpio, GPIO.LOW)
     print("Pi LED updated")
 
 client = mqtt.Client()
