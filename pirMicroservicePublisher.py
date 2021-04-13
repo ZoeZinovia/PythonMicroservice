@@ -3,8 +3,6 @@ import paho.mqtt.publish as publish
 import json
 from gpiozero import MotionSensor
 
-pir = MotionSensor(17)
-
 MQTT_SERVER = "192.168.1.210"
 MQTT_PATH = "PIR"
 
