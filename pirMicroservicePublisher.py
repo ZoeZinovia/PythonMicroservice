@@ -2,19 +2,22 @@ import time
 import paho.mqtt.publish as publish
 import json
 from gpiozero import MotionSensor
+import RPi.GPIO as GPIO
 
 MQTT_SERVER = "192.168.1.210"
 MQTT_PATH = "PIR"
 
 #Initial the pir device, with data pin connected to 17:
-pir = MotionSensor(17)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.IN)
+#pir = MotionSensor(17)
 presence = False
 
 count = 0
 while count<20:
     try:
          # Print the values to the serial port
-         newPresence = pir.motion_detected
+         newPresence = GPIO.input(17)
          if newPresence != presence:
              presence = newPresence
              temp_json = {"PIR": presence}
