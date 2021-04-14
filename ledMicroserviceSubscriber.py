@@ -35,7 +35,7 @@ def on_message(client, userdata, msg):
             GPIO.output(led_1_gpio, GPIO.HIGH)
         else:
             GPIO.output(led_1_gpio, GPIO.LOW)
-        print("Pi LED updated")
+        print("Pi LED updated. Timer: " + str(timer))
         end = time.time()
         timer = timer + (end-start)
 
