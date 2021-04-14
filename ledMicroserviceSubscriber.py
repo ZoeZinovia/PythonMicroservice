@@ -27,7 +27,7 @@ def on_message(client, userdata, msg):
         client.loop_stop()
         client.disconnect()
         print("LED subscriber closing. Runtime: " + str(timer))
-        with open("results.txt", "a") as myfile:
+        with open("results.txt", "w") as myfile:
             myfile.write("LED subscriber runtime = " + str(timer) + "\n")
         print("updated file")
     else:
