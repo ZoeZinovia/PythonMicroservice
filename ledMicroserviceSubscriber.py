@@ -7,7 +7,9 @@ MQTT_SERVER = "192.168.1.210"
 MQTT_PATH = "LED"
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-count = 0
+
+timer = 0
+
 
 def on_connect(client, userdata, flags, rc):
     print("Connected. Result code: "+ str(rc))
@@ -15,17 +17,16 @@ def on_connect(client, userdata, flags, rc):
 
 
 #the on_message function runs once a message is received from the broker
-def on_message(client, userdata, msg, count):
-    if count == 0:
-        start = time.time()
+def on_message(client, userdata, msg):
+    global timer
+    start = time.time()
     msg.payload = msg.payload.decode("utf-8")
     print("message received: " + msg.payload)
     received_json = json.loads(msg.payload) #convert the string to json object
     if "Done" in received_json:
         client.loop_stop()
         client.disconnect()
-        end = time.time()
-        print("led subscriber connection closing. Total time running: " + str(end-start))
+        print("led subscriber closing. Runtime: " + timer)
     else:
         led_1_status = received_json["LED_1"]
         led_1_gpio = received_json["GPIO"]
@@ -35,8 +36,10 @@ def on_message(client, userdata, msg, count):
         else:
             GPIO.output(led_1_gpio, GPIO.LOW)
         print("Pi LED updated")
-        count = count + 1
+        end = time.time()
+        timer = timer + (end-start)
 
+        
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
