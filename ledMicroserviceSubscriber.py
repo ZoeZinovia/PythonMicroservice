@@ -20,9 +20,10 @@ def on_message(client, userdata, msg):
     print("message received: " + msg.payload)
     received_json = json.loads(msg.payload) #convert the string to json object
     if "Done" in received_json:
+        client.loop_stop()
         client.disconnect()
         end = time.time()
-        print("led subscriber connection closing. Total time running: " + end)
+        print("led subscriber connection closing. Total time running: " + str(end-start))
     else:
         led_1_status = received_json["LED_1"]
         led_1_gpio = received_json["GPIO"]
@@ -36,7 +37,5 @@ def on_message(client, userdata, msg):
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
-
-
 client.connect(MQTT_SERVER, 1883, 60)
 client.loop_forever()
