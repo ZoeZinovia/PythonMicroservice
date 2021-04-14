@@ -26,7 +26,7 @@ def on_message(client, userdata, msg):
     if "Done" in received_json:
         client.loop_stop()
         client.disconnect()
-        print("led subscriber closing. Runtime: " + timer)
+        print("led subscriber closing. Runtime: " + str(timer))
     else:
         led_1_status = received_json["LED_1"]
         led_1_gpio = received_json["GPIO"]
@@ -39,7 +39,7 @@ def on_message(client, userdata, msg):
         end = time.time()
         timer = timer + (end-start)
 
-        
+
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
