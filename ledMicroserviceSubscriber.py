@@ -29,6 +29,7 @@ def on_message(client, userdata, msg):
         print("LED subscriber closing. Runtime: " + str(timer))
         file_object = open('results.txt', 'a')
         file_object.write("LED subscriber runtime = " + str(timer))
+        file_object.close()
     else:
         led_1_status = received_json["LED_1"]
         led_1_gpio = received_json["GPIO"]
