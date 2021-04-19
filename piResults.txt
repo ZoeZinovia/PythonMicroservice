@@ -1,9 +1,0 @@
-PIR publisher runtime = 0.04019284248352051
-Humidity and Temp publisher runtime = 0.3368227481842041
-Humidity and Temp publisher runtime = 22.704310655593872
-Humidity and Temp publisher runtime = 22.685439825057983
-Humidity and Temp publisher runtime = 22.727279901504517
-Humidity and Temp publisher runtime = 22.708973169326782
-PIR publisher runtime = 20.086025953292847
-LED subscriber runtime = 21.575236558914185
-Humidity and Temp publisher runtime = 22.705298900604248
