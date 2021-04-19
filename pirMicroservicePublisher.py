@@ -30,7 +30,7 @@ while count<20:
     except RuntimeError as error:     # Errors happen fairly often, DHT's are hard to read, just keep going
          print(error.args[0])
     count += 1
-    # time.sleep(5)
+    time.sleep(1)
 
 publish.single(MQTT_PATH, json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 end = time.time()
