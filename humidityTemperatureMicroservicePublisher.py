@@ -24,7 +24,7 @@ while count < 20:
         hum_json = {"Humidity": humidity, "Unit": "%"}
         publish.single("Humidity", json.dumps(hum_json), hostname=MQTT_SERVER)
         print("Humidity reading sent")
-
+        time.sleep(0.2)
         # if newTemperature != temperature:
         temperature = newTemperature
         temp_json = {"Temp": temperature, "Unit": "C"}
