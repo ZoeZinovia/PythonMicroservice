@@ -3,7 +3,6 @@
 #$1 represents the passed argument (ipaddress)
 
 sleep 3
-
 python3 humidityTemperatureMicroservicePublisher.py $1 &
 python3 pirMicroservicePublisher.py $1 &
 python3 ledMicroserviceSubscriber.py $1

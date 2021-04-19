@@ -4,3 +4,5 @@
 pkill -f humidityTemperatureMicroservicePublisher.py &
 pkill -f pirMicroservicePublisher.py &
 pkill -f ledMicroserviceSubscriber.py
+
+killall libgpiod_pulsei
