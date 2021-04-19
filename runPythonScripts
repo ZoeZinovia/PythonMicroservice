@@ -1,3 +1,5 @@
-python3 humidityTemperatureMicroservicePublisher.py &
+IPADDRESS=$1
 
-python3 pirMicroservicePublisher.py
+python3 humidityTemperatureMicroservicePublisher.py IPADDRESS &
+python3 pirMicroservicePublisher.py IPADDRESS &
+python3 ledMicroserviceSubscriber.py IPADDRESS

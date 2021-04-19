@@ -3,8 +3,9 @@ import paho.mqtt.publish as publish
 import json
 from gpiozero import MotionSensor
 import RPi.GPIO as GPIO
+import sys
 
-MQTT_SERVER = "192.168.1.210"
+MQTT_SERVER = sys.argv[1]
 MQTT_PATH = "PIR"
 
 #Initial the pir device, with data pin connected to 17:

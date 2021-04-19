@@ -2,8 +2,9 @@ import paho.mqtt.client as mqtt
 import json
 import RPi.GPIO as GPIO
 import time
+import sys
 
-MQTT_SERVER = "192.168.1.210"
+MQTT_SERVER = sys.argv[1]
 MQTT_PATH = "LED"
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)

@@ -3,8 +3,9 @@ import board
 import adafruit_dht
 import paho.mqtt.publish as publish
 import json
+import sys
 
-MQTT_SERVER = "192.168.1.210"
+MQTT_SERVER = sys.argv[1]
 MQTT_PATH = "Humidity"
 
 # Initial the dht device, with data pin connected to:
