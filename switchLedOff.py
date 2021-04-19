@@ -5,7 +5,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 action = sys.argv[1]
+pin = sys.argv[1]
+
+GPIO.setup(pin, GPIO.OUT)
 if action == "on":
-    GPIO.output(4, GPIO.HIGH)
+    GPIO.output(pin, GPIO.HIGH)
 else:
-    GPIO.output(4, GPIO.LOW)
+    GPIO.output(pin, GPIO.LOW)
