@@ -22,11 +22,13 @@ while count < 20:
             humidity = newHumidity
             hum_json = {"Humidity": humidity, "Unit": "%"}
             publish.single("Humidity", json.dumps(hum_json), hostname=MQTT_SERVER)
+            print("Humidity reading sent")
 
         if newTemperature != temperature:
             temperature = newTemperature
             temp_json = {"Temp": temperature, "Unit": "C"}
             publish.single("Temperature", json.dumps(temp_json), hostname=MQTT_SERVER)
+            print("Temperature reading sent")
 
     except RuntimeError as error:  # Errors happen fairly often, DHT's are hard to read, just keep going
         print(error.args[0])

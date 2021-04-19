@@ -23,6 +23,7 @@ while count<20:
              presence = newPresence
              temp_json = {"PIR": presence}
              publish.single(MQTT_PATH, json.dumps(temp_json), port=1883, hostname=MQTT_SERVER)
+             print("PIR reading sent")
 
     except RuntimeError as error:     # Errors happen fairly often, DHT's are hard to read, just keep going
          print(error.args[0])
