@@ -2,6 +2,6 @@
 #Run by using the following line in the correct directory in terminal: bash runPythonScripts <ipaddress of raspberry pi>
 #$1 represents the passed argument (ipaddress)
 
-/usr/bin/time python3 ledMicroserviceSubscriber.py $1 &
-/usr/bin/time python3 humidityTemperatureMicroservicePublisher.py $1 &
-/usr/bin/time python3 pirMicroservicePublisher.py $1
+/usr/bin/time -v python3 ledMicroserviceSubscriber.py $1 &
+/usr/bin/time -v python3 humidityTemperatureMicroservicePublisher.py $1 &
+/usr/bin/time -v python3 pirMicroservicePublisher.py $1
