@@ -1,6 +1,6 @@
 #Script to run 3 python scripts in parallel on the publisher side.
 #Run by using the following line in the correct directory in terminal: bash runPythonScripts <ipaddress of raspberry pi>
-#$1 represents the passed argument (ipaddress)
+#$1 represents the passed argument (ipaddress).
 
 sleep 2
 
