@@ -23,13 +23,11 @@ while count < 20:
         humidity = newHumidity
         hum_json = {"Humidity": humidity, "Unit": "%"}
         publish.single("Humidity", json.dumps(hum_json), hostname=MQTT_SERVER)
-        print("Humidity reading sent")
         time.sleep(0.2)
         # if newTemperature != temperature:
         temperature = newTemperature
         temp_json = {"Temp": temperature, "Unit": "C"}
         publish.single("Temperature", json.dumps(temp_json), hostname=MQTT_SERVER)
-        print("Temperature reading sent")
 
     except RuntimeError as error:  # Errors happen fairly often, DHT's are hard to read, just keep going
         print(error.args[0])
@@ -39,6 +37,5 @@ while count < 20:
 publish.single("Humidity", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 publish.single("Temperature", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 end = time.time()
-print("humidity and temperature publisher runtime: " + str(end-start))
 with open("piResults.txt", "a") as myfile:
     myfile.write("Humidity and Temp publisher runtime = " + str(end-start) + "\n")
