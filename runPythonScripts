@@ -4,4 +4,4 @@
 
 python3 ledMicroserviceSubscriber.py $1 &
 python3 humidityTemperatureMicroservicePublisher.py $1 &
-python3 pirMicroservicePublisher.py $1 & $ ps -m -o %cpu,%mem,command
+python3 pirMicroservicePublisher.py $1 & ps -m -o %cpu,%mem,command
