@@ -4,8 +4,8 @@
 
 sleep 2
 
-{ /usr/bin/time -v python3 ledMicroserviceSubscriber.py $1 ; } 2> memoryResults.txt &
-/usr/bin/time -v python3 humidityTemperatureMicroservicePublisher.py $1 &
-/usr/bin/time -v python3 pirMicroservicePublisher.py $1
+/usr/bin/time -v -o memoryResults.txt python3 ledMicroserviceSubscriber.py $1 &
+/usr/bin/time -v -o memoryResults.txt python3 humidityTemperatureMicroservicePublisher.py $1 &
+/usr/bin/time -v -o memoryResults.txt python3 pirMicroservicePublisher.py $1
 
 exit
