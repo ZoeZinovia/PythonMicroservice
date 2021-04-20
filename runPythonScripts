@@ -4,7 +4,7 @@
 
 sleep 2
 
-/usr/bin/time -v -o memoryResults.txt python3 ledMicroserviceSubscriber.py $1 &
+/usr/bin/time -v -o memoryResults.txt -a python3 ledMicroserviceSubscriber.py $1 &
 /usr/bin/time -v -o memoryResults.txt -a python3 humidityTemperatureMicroservicePublisher.py $1 &
 /usr/bin/time -v -o memoryResults.txt -a python3 pirMicroservicePublisher.py $1
 
