@@ -28,6 +28,7 @@ def on_message(client, userdata, msg):
         timer = end - start
         with open("piResultsPython.txt", "a") as myfile:
             myfile.write("LED subscriber runtime = " + str(timer) + "\n")
+        print("LED subscriber runtime = " + str(timer) + "\n");
     else:
         led_1_status = received_json["LED_1"]
         led_1_gpio = received_json["GPIO"]
