@@ -19,18 +19,16 @@ presence = False
 count = 0
 while count < 20:
     try:
-        newPresence = GPIO.input(17)
-        # if newPresence != presence:
-        presence = newPresence
+        presence = GPIO.input(17)
         temp_json = {"PIR": presence}
         publish.single(MQTT_PATH, json.dumps(temp_json), port=1883, hostname=MQTT_SERVER)
 
     except RuntimeError as error:  # Errors happen fairly often, DHT's are hard to read, just keep going
         print(error.args[0])
     count += 1
-    time.sleep(1)
 
 publish.single(MQTT_PATH, json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 end = time.time()
+print("PIR publisher runtime = " + str(end-start))
 with open("piResultsPython.txt", "a") as myfile:
     myfile.write("PIR publisher runtime = " + str(end - start) + "\n")
