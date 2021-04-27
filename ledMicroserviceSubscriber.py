@@ -26,7 +26,7 @@ def on_message(client, userdata, msg):
         client.disconnect()
         end = time.time()
         timer = end - start
-        with open("piResults.txt", "a") as myfile:
+        with open("piResultsPython.txt", "a") as myfile:
             myfile.write("LED subscriber runtime = " + str(timer) + "\n")
     else:
         led_1_status = received_json["LED_1"]

@@ -32,5 +32,5 @@ while count < 20:
 
 publish.single(MQTT_PATH, json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 end = time.time()
-with open("piResults.txt", "a") as myfile:
+with open("piResultsPython.txt", "a") as myfile:
     myfile.write("PIR publisher runtime = " + str(end - start) + "\n")

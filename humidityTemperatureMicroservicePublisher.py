@@ -18,7 +18,9 @@ while count < 20:
     try:
         # Print the values to the serial port
         newHumidity = dhtDevice.humidity
+        print(newHumidity)
         newTemperature = dhtDevice.temperature
+        print(newTemperature)
         # if newHumidity != humidity:
         humidity = newHumidity
         hum_json = {"Humidity": humidity, "Unit": "%"}
@@ -37,5 +39,5 @@ while count < 20:
 publish.single("Humidity", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 publish.single("Temperature", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 end = time.time()
-with open("piResults.txt", "a") as myfile:
-    myfile.write("Humidity and Temp publisher runtime = " + str(end-start) + "\n")
+with open("piResultsPython.txt", "a") as myfile:
+    myfile.write("Humidity and temperature publisher runtime = " + str(end-start) + "\n")
