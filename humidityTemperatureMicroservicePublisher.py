@@ -10,7 +10,7 @@ start = time.time()
 MQTT_SERVER = sys.argv[1]
 
 # Initial the dht device, with data pin connected to:
-dhtDevice = adafruit_dht.DHT11(board.D12)
+dhtDevice = adafruit_dht.DHT11(board.D4)
 humidity = 0
 temperature = 0;
 count = 0
