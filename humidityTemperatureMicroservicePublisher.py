@@ -37,5 +37,6 @@ while count < 20:
 publish.single("Humidity", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 publish.single("Temperature", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 end = time.time()
+print("Humidity and temperature runtime = " + str(end-start));
 with open("piResultsPython.txt", "a") as myfile:
     myfile.write("Humidity and temperature publisher runtime = " + str(end-start) + "\n")
