@@ -18,9 +18,7 @@ while count < 20:
     try:
         # Print the values to the serial port
         newHumidity = dhtDevice.humidity
-        print(newHumidity)
         newTemperature = dhtDevice.temperature
-        print(newTemperature)
         # if newHumidity != humidity:
         humidity = newHumidity
         hum_json = {"Humidity": humidity, "Unit": "%"}
