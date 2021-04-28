@@ -9,6 +9,5 @@ start=$(date +%s.%N)
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 humidityTemperatureMicroservicePublisher.py $1 &
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 pirMicroservicePublisher.py $1
 
-duration=$(($(date +%s.%N) - $start"))
+duration=$(($(date +%s.%N) - $start))
 echo $duration
-
