@@ -9,6 +9,7 @@ MQTT_PATH = "LED"
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 num_messages = 0
+start = time.time()
 
 
 def on_connect(client, userdata, flags, rc):
@@ -19,6 +20,7 @@ def on_connect(client, userdata, flags, rc):
 #the on_message function runs once a message is received from the broker
 def on_message(client, userdata, msg):
     global num_messages
+    global start
     num_messages += 1
     if num_messages == 1:
         start = time.time()
