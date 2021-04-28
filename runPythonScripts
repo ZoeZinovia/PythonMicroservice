@@ -12,5 +12,5 @@ start=$(date +%s)
 
 end=$(date +%s)
 seconds=$(($end - $start))
-echo seconds
+echo $seconds
 exit
