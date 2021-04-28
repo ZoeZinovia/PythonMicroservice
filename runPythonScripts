@@ -11,5 +11,4 @@ start=$(date +%s.%N)
 
 end=$(date +%s.%N)
 
-data="$start $end" | awk '{print $2 - $1}'
-echo $data
+"$start $end" | awk '{print "Overall runtime: " + $2 - $1}' >> piResultsPython.txt
