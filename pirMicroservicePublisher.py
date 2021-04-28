@@ -13,7 +13,6 @@ MQTT_PATH = "PIR"
 # Initial the pir device, with data pin connected to 17:
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.IN)
-# pir = MotionSensor(17)
 presence = False
 
 count = 0
