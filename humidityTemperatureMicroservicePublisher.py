@@ -15,20 +15,13 @@ humidity = 0
 temperature = 0;
 count = 0
 while count < 100:
-        # Print the values to the serial port
-        newHumidity = dhtDevice.humidity
-        newTemperature = dhtDevice.temperature
-        # if newHumidity != humidity:
-        humidity = newHumidity
-        hum_json = {"Humidity": humidity, "Unit": "%"}
-        publish.single("Humidity", json.dumps(hum_json), hostname=MQTT_SERVER)
-        time.sleep(0.2)
-        # if newTemperature != temperature:
-        temperature = newTemperature
-        temp_json = {"Temp": temperature, "Unit": "C"}
-        publish.single("Temperature", json.dumps(temp_json), hostname=MQTT_SERVER)
-        count += 1
-    # time.sleep(0.2)
+    humidity = dhtDevice.humidity # Get current humidity from dht11
+    temperature = dhtDevice.temperature # Get current temperature from dht11
+    hum_json = {"Humidity": humidity, "Unit": "%"}
+    publish.single("Humidity", json.dumps(hum_json), hostname=MQTT_SERVER)
+    temp_json = {"Temp": temperature, "Unit": "C"}
+    publish.single("Temperature", json.dumps(temp_json), hostname=MQTT_SERVER)
+    count += 1
 
 publish.single("Humidity", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 publish.single("Temperature", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
