@@ -4,13 +4,12 @@
 
 sleep 2
 
-start=$SECONDS
+SECONDS=0
 
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 ledMicroserviceSubscriber.py $1 &
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 humidityTemperatureMicroservicePublisher.py $1 &
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 pirMicroservicePublisher.py $1
 
-duration=$(( SECONDS - start ))
-echo duration
+echo $SECONDS
 
 exit
