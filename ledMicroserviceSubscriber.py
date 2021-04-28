@@ -8,8 +8,7 @@ MQTT_SERVER = sys.argv[1]
 MQTT_PATH = "LED"
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-
-start = time.time()
+num_messages = 0
 
 
 def on_connect(client, userdata, flags, rc):
@@ -19,7 +18,10 @@ def on_connect(client, userdata, flags, rc):
 
 #the on_message function runs once a message is received from the broker
 def on_message(client, userdata, msg):
-    # msg.payload = msg.payload.decode("utf-8")
+    global num_messages
+    num_messages += 1
+    if num_messages == 1:
+        start = time.time()
     received_json = json.loads(msg.payload) #convert the string to json object
     if "Done" in received_json:
         client.loop_stop()
