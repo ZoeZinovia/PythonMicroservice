@@ -21,11 +21,11 @@ def on_connect(client, userdata, flags, rc):
 # The on_message function runs once a message is received from the broker
 def on_message(client, userdata, msg):
     global num_messages
+    global start
+    global pin
     num_messages += 1
     if num_messages == 1:
         start = time.time()
-    global start
-    global pin
     received_json = json.loads(msg.payload) #convert the string to json object
     if "Done" in received_json:
         client.loop_stop()
