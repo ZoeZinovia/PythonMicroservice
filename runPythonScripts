@@ -11,6 +11,6 @@ start=$(date +%s)
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 pirMicroservicePublisher.py $1
 
 end=$(date +%s)
-seconds=$(echo "$end - $start" | bc)
-
+seconds=$(($end - $start))
+echo seconds
 exit
