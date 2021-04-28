@@ -17,7 +17,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(MQTT_PATH)
 
 
-#the on_message function runs once a message is received from the broker
+# The on_message function runs once a message is received from the broker
 def on_message(client, userdata, msg):
     global num_messages
     global start
@@ -41,7 +41,6 @@ def on_message(client, userdata, msg):
             GPIO.output(led_1_gpio, GPIO.HIGH)
         else:
             GPIO.output(led_1_gpio, GPIO.LOW)
-
 
 
 client = mqtt.Client()
