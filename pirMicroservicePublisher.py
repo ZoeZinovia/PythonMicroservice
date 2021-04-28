@@ -17,7 +17,7 @@ GPIO.setup(17, GPIO.IN)
 presence = False
 
 count = 0
-while count < 20:
+while count < 100:
     try:
         presence = GPIO.input(17)
         temp_json = {"PIR": presence}

@@ -1,4 +1,0 @@
-
-PIR publisher runtime = 0.04056811332702637
-LED subscriber runtime = 2.2106218338012695
-Humidity and temperature publisher runtime = 9.171977996826172
