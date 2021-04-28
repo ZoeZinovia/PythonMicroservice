@@ -10,6 +10,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 num_messages = 0
 start = time.time()
+pin = 0;
 
 
 def on_connect(client, userdata, flags, rc):
@@ -21,6 +22,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     global num_messages
     global start
+    global pin
     num_messages += 1
     if num_messages == 1:
         start = time.time()
@@ -33,14 +35,16 @@ def on_message(client, userdata, msg):
         with open("piResultsPython.txt", "a") as myfile:
             myfile.write("LED subscriber runtime = " + str(timer) + "\n")
         print("LED subscriber runtime = " + str(timer) + "\n");
+        GPIO.output(pin, GPIO.LOW)
+
     else:
         led_1_status = received_json["LED_1"]
-        led_1_gpio = received_json["GPIO"]
-        GPIO.setup(led_1_gpio, GPIO.OUT)
+        pin = received_json["GPIO"]
+        GPIO.setup(pin, GPIO.OUT)
         if led_1_status:
-            GPIO.output(led_1_gpio, GPIO.HIGH)
+            GPIO.output(pin, GPIO.HIGH)
         else:
-            GPIO.output(led_1_gpio, GPIO.LOW)
+            GPIO.output(pin, GPIO.LOW)
 
 
 client = mqtt.Client()
