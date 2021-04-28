@@ -26,6 +26,7 @@ def on_message(client, userdata, msg):
     num_messages += 1
     if num_messages == 1:
         start = time.time()
+        print(start)
     received_json = json.loads(msg.payload) #convert the string to json object
     if "Done" in received_json:
         client.loop_stop()
