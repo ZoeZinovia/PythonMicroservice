@@ -7,8 +7,8 @@ start=$(date +%s.%N)
 
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 ledMicroserviceSubscriber.py $1 &
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 humidityTemperatureMicroservicePublisher.py $1 &
-/usr/bin/time -v -o memoryResultsPython.txt -a python3 pirMicroservicePublisher.py $1
+/usr/bin/time -v -o memoryResultsPython.txt -a python3 pirMicroservicePublisher.py $1;
 
 end=$(date +%s.%N)
 
-echo echo "$start $end" | awk '{print $2 - $1}'
+echo "$start $end" | awk '{print $2 - $1}'
