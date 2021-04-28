@@ -11,4 +11,4 @@ start=$(date +%s.%N)
 
 end=$(date +%s.%N)
 
-echo echo "$start $end" | awk '{print $1 - $2}'
+echo echo "$start $end" | awk '{print $2 - $1}'
