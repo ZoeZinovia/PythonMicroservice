@@ -1,7 +1,6 @@
 import time
 import paho.mqtt.publish as publish
 import json
-from gpiozero import MotionSensor
 import RPi.GPIO as GPIO
 import sys
 
@@ -23,7 +22,6 @@ while count < 100:
         publish.single(MQTT_PATH, json.dumps(temp_json), port=1883, hostname=MQTT_SERVER)
     except RuntimeError as error:  # Errors happen fairly often, DHT's are hard to read, just keep going
         print(error.args[0])
-        print("from this loop")
     count += 1
 
 publish.single(MQTT_PATH, json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
