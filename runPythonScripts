@@ -10,6 +10,6 @@ SECONDS=0
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 humidityTemperatureMicroservicePublisher.py $1 &
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 pirMicroservicePublisher.py $1
 
-&& echo $SECONDS
+echo $SECONDS
 
 exit
