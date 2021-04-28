@@ -15,7 +15,6 @@ humidity = 0
 temperature = 0;
 count = 0
 while count < 100:
-    try:
         # Print the values to the serial port
         newHumidity = dhtDevice.humidity
         newTemperature = dhtDevice.temperature
@@ -28,10 +27,7 @@ while count < 100:
         temperature = newTemperature
         temp_json = {"Temp": temperature, "Unit": "C"}
         publish.single("Temperature", json.dumps(temp_json), hostname=MQTT_SERVER)
-
-    except RuntimeError as error:  # Errors happen fairly often, DHT's are hard to read, just keep going
-        print(error.args[0])
-    count += 1
+        count += 1
     # time.sleep(0.2)
 
 publish.single("Humidity", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
