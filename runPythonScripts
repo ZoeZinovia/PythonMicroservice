@@ -4,12 +4,13 @@
 
 sleep 2
 
-SECONDS=0
+start=$(date +%s)
 
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 ledMicroserviceSubscriber.py $1 &
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 humidityTemperatureMicroservicePublisher.py $1 &
 /usr/bin/time -v -o memoryResultsPython.txt -a python3 pirMicroservicePublisher.py $1
 
-echo $SECONDS
+end=$(date +%s)
+seconds = (echo "$end - $start" | bc)
 
 exit
