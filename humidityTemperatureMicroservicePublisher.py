@@ -12,7 +12,7 @@ MQTT_SERVER = sys.argv[1]
 # Initial the dht device, with data pin connected to:
 dhtDevice = adafruit_dht.DHT11(board.D4)
 count = 0
-while count < 100:
+while count < 10000:
     try:
         humidity = dhtDevice.humidity # Get current humidity from dht11
         temperature = dhtDevice.temperature # Get current temperature from dht11
