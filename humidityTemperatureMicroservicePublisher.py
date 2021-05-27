@@ -16,7 +16,7 @@ MQTT_SERVER = sys.argv[1]
 # Initial the dht device, with data pin connected to:
 dhtDevice = adafruit_dht.DHT11(board.D4)
 count = 0
-while count < 10000:
+while count < 1000000:
     try:
         endDht = time.time()
         if(humidity == 0 and temperature == 0) or (endDht-startDht) > 1:
@@ -35,5 +35,5 @@ publish.single("Humidity", json.dumps({"Done": True}), port=1883, hostname=MQTT_
 publish.single("Temperature", json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 end = time.time()
 print("Humidity and temperature runtime = " + str(end-start))
-with open("piResultsPython.txt", "a") as myfile:
+with open("piResultsPythonLong.txt", "a") as myfile:
     myfile.write("Humidity and temperature publisher runtime = " + str(end-start) + "\n")

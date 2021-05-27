@@ -15,7 +15,7 @@ GPIO.setup(17, GPIO.IN)
 presence = False
 
 count = 0
-while count < 10000:
+while count < 1000000:
     try:
         presence = GPIO.input(17)
         temp_json = {"PIR": presence}
@@ -27,5 +27,5 @@ while count < 10000:
 publish.single(MQTT_PATH, json.dumps({"Done": True}), port=1883, hostname=MQTT_SERVER)
 end = time.time()
 print("PIR publisher runtime = " + str(end-start))
-with open("piResultsPython.txt", "a") as myfile:
+with open("piResultsPythonLong.txt", "a") as myfile:
     myfile.write("PIR publisher runtime = " + str(end - start) + "\n")

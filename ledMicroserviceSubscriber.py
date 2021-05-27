@@ -32,7 +32,7 @@ def on_message(client, userdata, msg):
         client.disconnect()
         end = time.time()
         timer = end - start
-        with open("piResultsPython.txt", "a") as myfile:
+        with open("piResultsPythonLong.txt", "a") as myfile:
             myfile.write("LED subscriber runtime = " + str(timer) + "\n")
         print("LED subscriber runtime = " + str(timer) + "\n");
         GPIO.output(pin, GPIO.LOW)
