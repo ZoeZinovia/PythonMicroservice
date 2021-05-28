@@ -43,8 +43,10 @@ def on_message(client, userdata, msg):
         GPIO.setup(pin, GPIO.OUT)
         if led_1_status:
             GPIO.output(pin, GPIO.HIGH)
+            print("on")
         else:
             GPIO.output(pin, GPIO.LOW)
+            print("off")
 
 
 client = mqtt.Client()
