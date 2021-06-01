@@ -16,7 +16,7 @@ MQTT_SERVER = sys.argv[1]
 # Initial the dht device, with data pin connected to:
 dhtDevice = adafruit_dht.DHT11(board.D4)
 count = 0
-while count < 1000000:
+while count < 100000:
     try:
         endDht = time.time()
         if(humidity == 0 and temperature == 0) or (endDht-startDht) > 1:
