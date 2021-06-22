@@ -22,7 +22,7 @@ Coming soon...
 ### Executing program
 
 * Once all dependencies have been installed, all code can be run using: 
-  '''bash runPythonScripts'''
+  ```bash runPythonScripts```
 
 * Alternatively, the python scripts can be run individually using:
-  '''python3 filename.py'''
+  ```python3 filename.py```
