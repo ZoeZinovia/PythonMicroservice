@@ -4,9 +4,9 @@
 
 start=$(date +%s.%N)
 
-/usr/bin/time -v -o memoryResultsPythonLong.txt -a python3 humidityTemperatureMicroservicePublisher.py $1 &
+/usr/bin/time -v -o memoryResultsPythonLong.txt -a python3 ledMicroserviceSubscriber.py $1 &
 /usr/bin/time -v -o memoryResultsPythonLong.txt -a python3 pirMicroservicePublisher.py $1 &
-/usr/bin/time -v -o memoryResultsPythonLong.txt -a python3 ledMicroserviceSubscriber.py $1;
+/usr/bin/time -v -o memoryResultsPythonLong.txt -a python3 humidityTemperatureMicroservicePublisher.py $1;
 
 end=$(date +%s.%N)
 
